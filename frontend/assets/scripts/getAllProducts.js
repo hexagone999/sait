@@ -1,19 +1,13 @@
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
   const productListElement = document.getElementById("products-anchor");
 
   // Fetch products from the API
-  const res = await fetch("http://localhost:5000/api/products", {
-    mode: "no-cors",
-    credentials: "include",
-    method: "GET",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  });
-  console.log(res);
-  const data = await res.json();
-  console.log(data);
-  await displayProducts(data);
+  fetch("http://localhost:5000/api/products")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      displayProducts(data);
+    });
 
   function displayProducts(products) {
     // Clear existing content
@@ -29,11 +23,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     products.forEach((product) => {
       const productElement = document.createElement("div");
       productElement.innerHTML = `
-      <a class="item" href="item.html?id=${product.id}">
-      <img src=${product.thumbnail}/>
-      <h4>${product.name}</h4>
-      <h5>${product.price}</h5>
-  </a>
+          <a class="item" href="item.html?id=${product.Id}">
+            <img src=${product.Thumbnail}/>
+            <h4>${product.Name}</h4>
+            <h5>${product.Price}</h5>
+          </a>
             `;
       productListElement.appendChild(productElement);
     });

@@ -16,17 +16,7 @@ public class Startup
         public IConfiguration Configuration { get; }
          public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials(); // Allow credentials
-    });
-});
+           
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 // Use the default settings or customize as needed
@@ -35,7 +25,17 @@ public class Startup
             });     
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite("Data Source=site.db"));
+             services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
             
+    });
+});
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,9 +44,9 @@ public class Startup
             {
                 app.UseDeveloperExceptionPage();
             }
-
+      
             app.UseRouting();
-
+       app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

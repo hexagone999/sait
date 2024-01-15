@@ -21,18 +21,25 @@ public class AppDbContext : DbContext
     {
         Console.WriteLine("OnModelCreating");
          // Configure relationships between Product and Image entities
-        modelBuilder.Entity<Image>()
-            .HasOne(i => i.Product)
-            .WithMany(p => p.Images)
-            .HasForeignKey(i => i.ProductId);
-        // Configure relationships between Product and Comment entities
+
+            // Define relationships
         modelBuilder.Entity<Comment>()
             .HasOne(c => c.Product)
             .WithMany(p => p.Comments)
-            .HasForeignKey(c => c.ProductId);
+            .HasForeignKey(c => c.ProductId)
+            .OnDelete(DeleteBehavior.Cascade); // Optional: Cascade delete for comments when a product is deleted
+
+        modelBuilder.Entity<Image>()
+            .HasOne(i => i.Product)
+            .WithMany(p => p.Images)
+            .HasForeignKey(i => i.ProductId)
+            .OnDelete(DeleteBehavior.Cascade); // Optional: Cascade delete for images when a product is deleted
 
        
-    Console.WriteLine("OnModelCreating finished");
+    
+
+        base.OnModelCreating(modelBuilder);
+        Console.WriteLine("OnModelCreating finished");
         // Add any other configurations as needed
     }
 }

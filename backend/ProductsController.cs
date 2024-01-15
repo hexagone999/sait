@@ -1,4 +1,5 @@
 // ProductsController.cs
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ public class ProductsController : ControllerBase
     {
         _context = context;
     }
-
+    [EnableCors()]
     [HttpGet]
     public ActionResult<IEnumerable<Product>> GetAllProducts()
     {
@@ -37,28 +38,41 @@ public class ProductsController : ControllerBase
         return Ok(products);
     }
 
+    [EnableCors()]
     [HttpGet("{id}")]
     public ActionResult<Product> GetSingleProduct(int id)
     {
         
         var productWithComments = _context.PRODUCT
-            .Include(p => p.Comments)
             .Select(p => new Product
             {
                 Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
-                Thumbnail = p.Thumbnail,
-                Comments= p.Comments,
+                Thumbnail = p.Thumbnail,     
             })
             .FirstOrDefault(p => p.Id == id);
+        
+        var Comments = _context.COMMENT
+            .Select(c => new Comment
+            {
+                Id = c.Id,
+                Author = c.Author,
+                Date= c.Date,
+                Text = c.Text,
+                ProductId = c.ProductId,
+            })
+            .ToList();
+          
 
+           
+        Console.WriteLine("GetSingleProduct");
         if (productWithComments == null)
         {
             return NotFound(); // Return 404 if the product is not found
         }
-
+        productWithComments.Comments = Comments;     
         return Ok(productWithComments);
     }
 }
