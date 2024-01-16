@@ -13,8 +13,8 @@ CREATE TABLE COMMENT (
     author TEXT NOT NULL,
     date TEXT NOT NULL,
     text TEXT NOT NULL,
-    product_id INTEGER,
-    FOREIGN KEY (product_id) REFERENCES PRODUCT(id)
+    productid INTEGER,
+    FOREIGN KEY (productid) REFERENCES PRODUCT(id)
 );
 
 -- Creating the IMAGE table
@@ -22,5 +22,5 @@ CREATE TABLE IMAGE (
     id INTEGER PRIMARY KEY,
     url TEXT NOT NULL,
     product_id INTEGER,
-    FOREIGN KEY (product_id) REFERENCES PRODUCT(id)
+    FOREIGN KEY (productid) REFERENCES PRODUCT(id)
 );

@@ -36,22 +36,11 @@
     <main class="flex">
       <section class="item-details inner-item">
         <div class="col-fd-7 gallery">
-          <img class="main-image" src="./assets/images/p-0.webp" />
-          <div class="gallery-images">
-            <img src="./assets/images/backpack-0.webp" class="selected" />
-            <img src="./assets/images/backpack-1.webp" />
-            <img src="./assets/images/backpack-2.webp" />
-            <img src="./assets/images/backpack-3.webp" />
-            <img src="./assets/images/backpack-4.webp" />
-            <img src="./assets/images/backpack-5.webp" />
-            <img src="./assets/images/backpack-6.webp" />
-            <img src="./assets/images/backpack-7.webp" />
-            <img src="./assets/images/backpack-8.webp" />
-            <img src="./assets/images/backpack-9.webp" />
-          </div>
+          <img class="main-image" id="main-image" />
+          <div class="gallery-images" id="gallery-images"></div>
         </div>
         <div class="col-fd-5 details">
-          <h1>Premium Desk Mat - Black</h1>
+          <h1 id="name"></h1>
           <div class="stars">
             <div>
               <img src="./assets/images/icons/star.svg" alt="Star" />
@@ -62,7 +51,7 @@
             </div>
             <span class="review">108 Reviews</span>
           </div>
-          <h3 class="price">109.00 lv.</h3>
+          <h3 class="price" id="price"></h3>
           <p class="shipping-info">
             Shipping prices are calculated during checkout.
           </p>
@@ -156,56 +145,7 @@ Note: Our desk mats are delivered rolled up. They will take a few days to settle
         </div>
         <div class="col-fd-12">
           <h2>Comments & Reviews</h2>
-          <div class="comments">
-            <div class="comment">
-              <p class="author">Elena Hartman</p>
-              <p>
-                I recently purchased this backpack for my hiking trip, and it
-                exceeded all my expectations! The durability of the materials
-                and the thoughtfulness in design truly stood out. Multiple
-                compartments kept my gear organized, and the padded straps made
-                long treks a breeze. Stylish and functional, this backpack is
-                now my go-to for any outdoor adventure.
-              </p>
-              <p class="date">Posted on: November 21, 2023</p>
-            </div>
-            <div class="comment">
-              <p class="author">Marcus Reynolds</p>
-              <p>
-                As a frequent traveler, finding the perfect backpack is crucial.
-                I'm happy to say that this backpack has become my trusted
-                companion. Its spacious interior accommodates all my essentials,
-                and the sturdy construction ensures it can handle the rigors of
-                constant use. Plus, the sleek design adds a touch of
-                sophistication. Highly recommended for fellow globetrotters.
-              </p>
-              <p class="date">Posted on: November 19, 2023</p>
-            </div>
-            <div class="comment">
-              <p class="author">Isabella Chang</p>
-              <p>
-                I've been using this backpack for my daily commute, and it's
-                been a game-changer. The laptop compartment provides excellent
-                protection, and the numerous pockets help me stay organized. The
-                padded back and shoulder straps ensure comfort during long
-                walks. It's stylish enough for work, practical enough for
-                everyday use—I couldn't be happier with my purchase.
-              </p>
-              <p class="date">Posted on: November 18, 2023</p>
-            </div>
-            <div class="comment">
-              <p class="author">Nathanial Blackwood</p>
-              <p>
-                This backpack is a lifesaver for students like me. The ergonomic
-                design lessens the burden on my shoulders, even when carrying
-                hefty textbooks. The quality of the zippers and stitching gives
-                me confidence in its longevity. It's not just a backpack; it's a
-                study buddy that reliably carries my academic load. I highly
-                recommend it to my fellow scholars.
-              </p>
-              <p class="date">Posted on: November 18, 2023</p>
-            </div>
-          </div>
+          <div class="comments" id="comments"></div>
           <div class="comment-form">
             <h2>Your Feedback</h2>
             <input
@@ -226,7 +166,8 @@ Note: Our desk mats are delivered rolled up. They will take a few days to settle
         </div>
       </section>
     </main>
-    <script src="./assets/scripts/script.js"></script>
+
     <script src="./assets/scripts/getSingleProduct.js"></script>
+    <script src="./assets/scripts/script.js"></script>
   </body>
 </html>

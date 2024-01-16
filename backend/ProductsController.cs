@@ -19,7 +19,7 @@ public class ProductsController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Product>> GetAllProducts()
     {
-       Console.WriteLine("GetAllProducts");
+    
         var products = _context.PRODUCT
             .Select(p => new Product
             {
@@ -31,10 +31,6 @@ public class ProductsController : ControllerBase
             })
             .ToList();
 
-        products.ForEach(p =>
-        {
-            Console.WriteLine(p.Name);
-        });
         return Ok(products);
     }
 
@@ -44,6 +40,8 @@ public class ProductsController : ControllerBase
     {
         
         var productWithComments = _context.PRODUCT
+            .Include(p => p.Comments)
+            .Include(p => p.Images)
             .Select(p => new Product
             {
                 Id = p.Id,
@@ -53,7 +51,13 @@ public class ProductsController : ControllerBase
                 Thumbnail = p.Thumbnail,     
             })
             .FirstOrDefault(p => p.Id == id);
-        
+      
+          
+        if (productWithComments == null)
+        {
+            return NotFound(); // Return 404 if the product is not found
+        }
+          
         var Comments = _context.COMMENT
             .Select(c => new Comment
             {
@@ -61,18 +65,25 @@ public class ProductsController : ControllerBase
                 Author = c.Author,
                 Date= c.Date,
                 Text = c.Text,
-                ProductId = c.ProductId,
+                Productid = c.Productid,
             })
+            .ToList()
+            .Where(c => c.Productid == id)
             .ToList();
-          
+        productWithComments.Comments = Comments;   
 
-           
-        Console.WriteLine("GetSingleProduct");
-        if (productWithComments == null)
-        {
-            return NotFound(); // Return 404 if the product is not found
-        }
-        productWithComments.Comments = Comments;     
+        var Images = _context.IMAGE
+            .Select(i => new Image
+            {
+                Id = i.Id,
+                Url = i.Url,
+                Productid = i.Productid,
+            })
+            .ToList()
+            .Where(i => i.Productid == id)
+            .ToList();
+        productWithComments.Images = Images;
+          
         return Ok(productWithComments);
     }
 }

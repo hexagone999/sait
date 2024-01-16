@@ -1,70 +1,66 @@
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(dropdown => dropdown.addEventListener('click', () => dropdown.classList.toggle('selected')))
+const dropdowns = document.querySelectorAll(".dropdown");
+dropdowns.forEach((dropdown) =>
+  dropdown.addEventListener("click", () =>
+    dropdown.classList.toggle("selected")
+  )
+);
 
-const value = document.querySelector('.quantity-wrapper .value');
-const plus = document.querySelector('.quantity-wrapper .plus');
-const minus = document.querySelector('.quantity-wrapper .minus');
+const value = document.querySelector(".quantity-wrapper .value");
+const plus = document.querySelector(".quantity-wrapper .plus");
+const minus = document.querySelector(".quantity-wrapper .minus");
 
-plus.addEventListener('click', () => +value.textContent < 99 && (value.textContent = +value.textContent + 1));
-minus.addEventListener('click', () => +value.textContent > 1 && (value.textContent = +value.textContent - 1));
+plus.addEventListener(
+  "click",
+  () => +value.textContent < 99 && (value.textContent = +value.textContent + 1)
+);
+minus.addEventListener(
+  "click",
+  () => +value.textContent > 1 && (value.textContent = +value.textContent - 1)
+);
 
-const previewImage = document.querySelector('.main-image');
+const commentSection = document.querySelector(".comments");
+const commentForm = document.querySelector(".comment-form");
 
-const images = document.querySelectorAll('.gallery-images img');
-images.forEach(image => {
-    image.addEventListener('click', () => {
-        images.forEach(image => image.classList.remove('selected'));
-        image.classList.add('selected');
-        previewImage.setAttribute('src', image.getAttribute('src'));
-    });
-});
+const nameInput = document.querySelector(".comment-form #name");
+const emailInput = document.querySelector(".comment-form #email");
+const commentInput = document.querySelector(".comment-form textarea");
+const postButton = document.querySelector(".comment-form button");
 
-const commentSection = document.querySelector('.comments');
-const commentForm    = document.querySelector('.comment-form'); 
+postButton.addEventListener("click", () => {
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const comment = commentInput.value;
 
-const nameInput = document.querySelector('.comment-form #name');
-const emailInput = document.querySelector('.comment-form #email');
-const commentInput = document.querySelector('.comment-form textarea');
-const postButton = document.querySelector('.comment-form button');
+  if (name.trim() === "") {
+    alert("Please enter your name.");
+    return false;
+  }
 
-postButton.addEventListener('click', () => {
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email.match(emailRegex)) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
 
-    const name    = nameInput.value;
-    const email   = emailInput.value;
-    const comment = commentInput.value;
+  if (comment.trim() === "") {
+    alert("Please add your comment.");
+    return false;
+  }
 
-    if (name.trim() === "") {
-        alert("Please enter your name.");
-        return false;
-    }
+  var today = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.match(emailRegex)) {
-        alert("Please enter a valid email address.");
-        return false;
-    }
-
-    if (comment.trim() === "") {
-        alert("Please add your comment.");
-        return false;
-    }
-    
-    var today = new Date().toLocaleDateString('en-US', {
-        year:   'numeric', 
-        month:  'long', 
-        day:    'numeric'
-    });
-
-    setTimeout(() => {
-        const node =
-            `<div class="comment">
+  setTimeout(() => {
+    const node = `<div class="comment">
                 <p class="author">${name}</p>
                 <p>${comment}</p>
                 <p class="date">Posted on: ${today}</p>
             </div>`;
-        commentSection.innerHTML += node;
-    }, 500);
+    commentSection.innerHTML += node;
+  }, 500);
 
-    commentForm.classList.add('shrinked');
-    
+  commentForm.classList.add("shrinked");
 });

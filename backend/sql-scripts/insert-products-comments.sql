@@ -12,7 +12,7 @@ INSERT INTO PRODUCT (id, name, price, description, thumbnail) VALUES
 (10, 'Product 10', 109.99, 'Description for Product 10', 'https://via.placeholder.com/600');
 
 -- Inserting 3 comments for each product
-INSERT INTO COMMENT (id, author, date, text, product_id) VALUES
+INSERT INTO COMMENT (id, author, date, text, productid) VALUES
 -- Comments for Product 1
 (1, 'User1', '2024-01-08', 'Great product!', 1),
 (2, 'User2', '2024-01-09', 'I love it!', 1),
@@ -64,52 +64,52 @@ INSERT INTO COMMENT (id, author, date, text, product_id) VALUES
 (30, 'User30', '2024-01-10', 'Very happy with the purchase.', 10);
 
 -- Insert 3 placeholder images for Product 1
-INSERT INTO IMAGE (id, url, product_id) VALUES (1, 'https://via.placeholder.com/150', 1);
-INSERT INTO IMAGE (id, url, product_id) VALUES (2, 'https://via.placeholder.com/250', 1);
-INSERT INTO IMAGE (id, url, product_id) VALUES (3, 'https://via.placeholder.com/200', 1);
+INSERT INTO IMAGE (id, url, productid) VALUES (1, 'https://via.placeholder.com/150', 1);
+INSERT INTO IMAGE (id, url, productid) VALUES (2, 'https://via.placeholder.com/250', 1);
+INSERT INTO IMAGE (id, url, productid) VALUES (3, 'https://via.placeholder.com/200', 1);
 
 -- Insert 3 placeholder images for Product 2
-INSERT INTO IMAGE (id, url, product_id) VALUES (4, 'https://via.placeholder.com/300', 2);
-INSERT INTO IMAGE (id, url, product_id) VALUES (5, 'https://via.placeholder.com/400', 2);
-INSERT INTO IMAGE (id, url, product_id) VALUES (6, 'https://via.placeholder.com/350', 2);
+INSERT INTO IMAGE (id, url, productid) VALUES (4, 'https://via.placeholder.com/300', 2);
+INSERT INTO IMAGE (id, url, productid) VALUES (5, 'https://via.placeholder.com/400', 2);
+INSERT INTO IMAGE (id, url, productid) VALUES (6, 'https://via.placeholder.com/350', 2);
 
 -- Insert 3 placeholder images for Product 3
-INSERT INTO IMAGE (id, url, product_id) VALUES (7, 'https://via.placeholder.com/450', 3);
-INSERT INTO IMAGE (id, url, product_id) VALUES (8, 'https://via.placeholder.com/550', 3);
-INSERT INTO IMAGE (id, url, product_id) VALUES (9, 'https://via.placeholder.com/500', 3);
+INSERT INTO IMAGE (id, url, productid) VALUES (7, 'https://via.placeholder.com/450', 3);
+INSERT INTO IMAGE (id, url, productid) VALUES (8, 'https://via.placeholder.com/550', 3);
+INSERT INTO IMAGE (id, url, productid) VALUES (9, 'https://via.placeholder.com/500', 3);
 
 -- Insert 3 placeholder images for Product 4
-INSERT INTO IMAGE (id, url, product_id) VALUES (10, 'https://via.placeholder.com/600', 4);
-INSERT INTO IMAGE (id, url, product_id) VALUES (11, 'https://via.placeholder.com/700', 4);
-INSERT INTO IMAGE (id, url, product_id) VALUES (12, 'https://via.placeholder.com/650', 4);
+INSERT INTO IMAGE (id, url, productid) VALUES (10, 'https://via.placeholder.com/600', 4);
+INSERT INTO IMAGE (id, url, productid) VALUES (11, 'https://via.placeholder.com/700', 4);
+INSERT INTO IMAGE (id, url, productid) VALUES (12, 'https://via.placeholder.com/650', 4);
 
 -- Insert 3 placeholder images for Product 5
-INSERT INTO IMAGE (id, url, product_id) VALUES (13, 'https://via.placeholder.com/750', 5);
-INSERT INTO IMAGE (id, url, product_id) VALUES (14, 'https://via.placeholder.com/850', 5);
-INSERT INTO IMAGE (id, url, product_id) VALUES (15, 'https://via.placeholder.com/800', 5);
+INSERT INTO IMAGE (id, url, productid) VALUES (13, 'https://via.placeholder.com/750', 5);
+INSERT INTO IMAGE (id, url, productid) VALUES (14, 'https://via.placeholder.com/850', 5);
+INSERT INTO IMAGE (id, url, productid) VALUES (15, 'https://via.placeholder.com/800', 5);
 
 -- Insert 3 placeholder images for Product 6
-INSERT INTO IMAGE (id, url, product_id) VALUES (16, 'https://via.placeholder.com/900', 6);
-INSERT INTO IMAGE (id, url, product_id) VALUES (17, 'https://via.placeholder.com/1000', 6);
-INSERT INTO IMAGE (id, url, product_id) VALUES (18, 'https://via.placeholder.com/950', 6);
+INSERT INTO IMAGE (id, url, productid) VALUES (16, 'https://via.placeholder.com/900', 6);
+INSERT INTO IMAGE (id, url, productid) VALUES (17, 'https://via.placeholder.com/1000', 6);
+INSERT INTO IMAGE (id, url, productid) VALUES (18, 'https://via.placeholder.com/950', 6);
 
 -- Insert 3 placeholder images for Product 7
-INSERT INTO IMAGE (id, url, product_id) VALUES (19, 'https://via.placeholder.com/1050', 7);
-INSERT INTO IMAGE (id, url, product_id) VALUES (20, 'https://via.placeholder.com/1150', 7);
-INSERT INTO IMAGE (id, url, product_id) VALUES (21, 'https://via.placeholder.com/1100', 7);
+INSERT INTO IMAGE (id, url, productid) VALUES (19, 'https://via.placeholder.com/1050', 7);
+INSERT INTO IMAGE (id, url, productid) VALUES (20, 'https://via.placeholder.com/1150', 7);
+INSERT INTO IMAGE (id, url, productid) VALUES (21, 'https://via.placeholder.com/1100', 7);
 
 -- Insert 3 placeholder images for Product 8
-INSERT INTO IMAGE (id, url, product_id) VALUES (22, 'https://via.placeholder.com/1200', 8);
-INSERT INTO IMAGE (id, url, product_id) VALUES (23, 'https://via.placeholder.com/1250', 8);
-INSERT INTO IMAGE (id, url, product_id) VALUES (24, 'https://via.placeholder.com/1300', 8);
+INSERT INTO IMAGE (id, url, productid) VALUES (22, 'https://via.placeholder.com/1200', 8);
+INSERT INTO IMAGE (id, url, productid) VALUES (23, 'https://via.placeholder.com/1250', 8);
+INSERT INTO IMAGE (id, url, productid) VALUES (24, 'https://via.placeholder.com/1300', 8);
 
 -- Insert 3 placeholder images for Product 9
-INSERT INTO IMAGE (id, url, product_id) VALUES (25, 'https://via.placeholder.com/1350', 9);
-INSERT INTO IMAGE (id, url, product_id) VALUES (26, 'https://via.placeholder.com/1400', 9);
-INSERT INTO IMAGE (id, url, product_id) VALUES (27, 'https://via.placeholder.com/1450', 9);
+INSERT INTO IMAGE (id, url, productid) VALUES (25, 'https://via.placeholder.com/1350', 9);
+INSERT INTO IMAGE (id, url, productid) VALUES (26, 'https://via.placeholder.com/1400', 9);
+INSERT INTO IMAGE (id, url, productid) VALUES (27, 'https://via.placeholder.com/1450', 9);
 
 -- Insert 3 more placeholder images for Product 10
-INSERT INTO IMAGE (id, url, product_id) VALUES (28, 'https://via.placeholder.com/1500', 10);
-INSERT INTO IMAGE (id, url, product_id) VALUES (29, 'https://via.placeholder.com/1550', 10);
-INSERT INTO IMAGE (id, url, product_id) VALUES (30, 'https://via.placeholder.com/1600', 10);
+INSERT INTO IMAGE (id, url, productid) VALUES (28, 'https://via.placeholder.com/1500', 10);
+INSERT INTO IMAGE (id, url, productid) VALUES (29, 'https://via.placeholder.com/1550', 10);
+INSERT INTO IMAGE (id, url, productid) VALUES (30, 'https://via.placeholder.com/1600', 10);
 

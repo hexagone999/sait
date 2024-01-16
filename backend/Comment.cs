@@ -4,6 +4,6 @@ public class Comment
     public string? Author { get; set; }
     public DateTime? Date { get; set; }
     public string? Text { get; set; }
-    public int? ProductId { get; set; }
+    public int? Productid { get; set; }
     public Product? Product { get; set; }
 }

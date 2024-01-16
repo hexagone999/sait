@@ -6,6 +6,6 @@ public class Image
     
     // Foreign key for Product
 
-    public int ProductId { get; set; }
+    public int? Productid { get; set; }
     public Product? Product { get; set; }
 }
