@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainImage = document.getElementById("main-image");
   const price = document.getElementById("price");
   const name = document.getElementById("name");
+  const sortButton = document.getElementById("sortButton");
+  let descedingOrder = false;
 
   // Fetch single product by id from the API
   fetch("http://localhost:5000/api/products/" + (id ?? 1))
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         commentSection.appendChild(commentElement);
       });
 
+      // Add event listener to the images
       const images = document.querySelectorAll(".gallery-images img");
       images.forEach((image) => {
         image.addEventListener("click", () => {
@@ -46,4 +49,41 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     });
+
+  // Add event listener to the sort button
+  sortButton.addEventListener("click", () => {
+    if (!descedingOrder) {
+      const commentElements = Array.from(
+        document.getElementsByClassName("comment")
+      );
+      const sortedComments = commentElements.sort((a, b) => {
+        const dateA = new Date(
+          a.querySelector(".date").textContent.replace("Posted on: ", "")
+        );
+        const dateB = new Date(
+          b.querySelector(".date").textContent.replace("Posted on: ", "")
+        );
+        return dateB - dateA;
+      });
+      sortedComments.forEach((comment) => commentSection.appendChild(comment));
+      sortButton.textContent = "Sort by oldest";
+      descedingOrder = true;
+    } else {
+      const commentElements = Array.from(
+        document.getElementsByClassName("comment")
+      );
+      const sortedComments = commentElements.sort((a, b) => {
+        const dateA = new Date(
+          a.querySelector(".date").textContent.replace("Posted on: ", "")
+        );
+        const dateB = new Date(
+          b.querySelector(".date").textContent.replace("Posted on: ", "")
+        );
+        return dateA - dateB;
+      });
+      sortedComments.forEach((comment) => commentSection.appendChild(comment));
+      sortButton.textContent = "Sort by newest";
+      descedingOrder = false;
+    }
+  });
 });
