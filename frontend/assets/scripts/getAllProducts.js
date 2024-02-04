@@ -2,7 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const productListElement = document.getElementById("products-anchor");
 
   // Fetch products from the API
-  fetch("http://localhost:5000/api/products")
+  fetch("http://localhost:5000/api/products", {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+  })
     .then((response) => response.json())
     .then((data) => {
       displayProducts(data);
