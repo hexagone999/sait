@@ -1,6 +1,6 @@
 -- Creating the PRODUCT table
 CREATE TABLE PRODUCT (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     price REAL NOT NULL,
     description TEXT,
@@ -9,7 +9,7 @@ CREATE TABLE PRODUCT (
 
 -- Creating the COMMENT table
 CREATE TABLE COMMENT (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     author TEXT NOT NULL,
     date TEXT NOT NULL,
     text TEXT NOT NULL,
@@ -19,8 +19,8 @@ CREATE TABLE COMMENT (
 
 -- Creating the IMAGE table
 CREATE TABLE IMAGE (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     url TEXT NOT NULL,
-    product_id INTEGER,
+    productid INTEGER,
     FOREIGN KEY (productid) REFERENCES PRODUCT(id)
 );

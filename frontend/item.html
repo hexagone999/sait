@@ -151,7 +151,7 @@ Note: Our desk mats are delivered rolled up. They will take a few days to settle
             <h2>Your Feedback</h2>
             <input
               type="text"
-              id="name"
+              id="name-input"
               name="name"
               placeholder="Name Surname"
             />
@@ -161,8 +161,11 @@ Note: Our desk mats are delivered rolled up. They will take a few days to settle
               name="email"
               placeholder="youremail@mail.com"
             />
-            <textarea placeholder="Add your comment..."></textarea>
-            <button>Post Comment</button>
+            <textarea
+              id="comment-input"
+              placeholder="Add your comment..."
+            ></textarea>
+            <button id="post-comment-button">Post Comment</button>
           </div>
         </div>
       </section>
@@ -170,5 +173,6 @@ Note: Our desk mats are delivered rolled up. They will take a few days to settle
 
     <script src="./assets/scripts/getSingleProduct.js"></script>
     <script src="./assets/scripts/script.js"></script>
+    <script src="./assets/scripts/postComment.js"></script>
   </body>
 </html>
