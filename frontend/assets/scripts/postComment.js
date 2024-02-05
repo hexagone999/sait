@@ -31,9 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
         Productid: id,
       }),
       mode: "cors",
-    }).then((data) => {
+    }).then(() => {
       console.log("success");
-      const today = new Date().toLocaleDateString("en-US");
+      const today = new Date(Date.now()).toISOString();
+      console.log(today);
       const commentSection = document.querySelector(".comments");
       const commentForm = document.querySelector(".comment-form");
       setTimeout(() => {
